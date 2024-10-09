@@ -1,6 +1,7 @@
 from typing import Any
 from scrapy import Spider
 from scrapy.http import Response
+from crawler.items import CrawlerItem
 
 class ProductSpider(Spider):
     name = 'home'
@@ -11,11 +12,6 @@ class ProductSpider(Spider):
     def parse(self, response: Response) -> Any:
         title = response.xpath("//h1/text()").get()
         
-        # item = Item()
-        # item["title"] = title
-        
-        # item["url"] = response.url
-        # item["node"] = "parent" if response.url in self.start_urls else "child"
-        # yield item
-        yield {'title': title}
-    
+        item = CrawlerItem()
+        item["title"] = title
+        yield item    
