@@ -1,0 +1,1 @@
+docker-compose -p crawler -f docker-compose.yml up --build -d

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  web-crawler:
+    container_name: web-crawler
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    logging:
+      options:
+        max-size: "50m"
+        max-file: "3"
+    networks:
+      - docker_net
+
+networks:
+  docker_net:
+    name: docker_net
+    driver: bridge
