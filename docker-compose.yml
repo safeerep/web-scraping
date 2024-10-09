@@ -13,6 +13,24 @@ services:
     networks:
       - docker_net
 
+  mongodb:
+    container_name: mongodb
+    restart: always
+    image: mongo:5.0.5
+    ports:
+     - 27017:27017
+    logging:
+      options:
+        max-size: "50m"
+        max-file: "3"
+    networks:
+      - docker_net
+    volumes:
+      - db_volume:/data/db
+
+volumes:
+  db_volume:
+
 networks:
   docker_net:
     name: docker_net

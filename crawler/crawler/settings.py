@@ -62,10 +62,12 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "crawler.pipelines.CrawlerPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "crawler.pipelines.MongoDBPipeline": 300,
+}
 
+MONGO_URI = f'mongodb://mongodb:27017'
+MONGO_DB = "Crawler"
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
