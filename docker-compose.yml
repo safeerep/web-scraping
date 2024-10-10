@@ -4,7 +4,7 @@ services:
   web-crawler:
     container_name: web-crawler
     build:
-      context: ./
+      context: ./crawler
       dockerfile: Dockerfile
     logging:
       options:
@@ -27,6 +27,26 @@ services:
       - docker_net
     volumes:
       - db_volume:/data/db
+
+  server:
+    container_name: server
+    build:
+      context: ./server  
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    networks:
+      - docker_net
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - docker_net
 
 volumes:
   db_volume:

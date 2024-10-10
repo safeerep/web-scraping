@@ -12,7 +12,7 @@ spiders=(
 )
 
 # first we will be changing directory
-cd "./crawler"
+# cd "./crawler"
 
 # loop through the spiders and crawl as one by one
 for spider in "${spiders[@]}"; do
